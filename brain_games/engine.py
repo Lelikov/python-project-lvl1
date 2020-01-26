@@ -11,11 +11,11 @@ def welcome_user():
     return name
 
 
-def question(number_1, operation='', number_2=0):
-    if operation == '':
+def question(number_1, number_2=None, operation=' '):
+    if number_2 is None:
         print('Question: {}'.format(number_1))
     else:
-        print('Question: {} {} {}'.format(number_1, operation, number_2))
+        print('Question: {}{}{}'.format(number_1, operation, number_2))
     return prompt.string('Your answer ')
 
 
