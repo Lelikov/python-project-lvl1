@@ -19,12 +19,12 @@ def question(number_1, number_2=None, operation=' '):
     return prompt.string('Your answer ')
 
 
-def check_answer(right_answer, wrong_answer, name):
-    if right_answer == wrong_answer:
+def check_answer(right_answer, answer, name):
+    if answer == right_answer:
         print('Correct! \n')
     else:
         print("\n'{}' is wrong answer ;(. Correct answer was '{}'\
-        ".format(wrong_answer, right_answer))
+        ".format(answer, right_answer))
         print("Let's try again, {}!".format(name))
         return False
 
