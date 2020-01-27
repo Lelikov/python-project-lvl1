@@ -1,7 +1,7 @@
 
 import random
 from brain_games.engine import greeting, welcome_user, \
-    question, check_answer, congratulations, isPrime
+    question, check_answer, congratulations, is_prime
 
 
 def prime():
@@ -11,7 +11,7 @@ Otherwise answer "no".')
     for _ in range(1, 4):
         number = random.randint(1, 100)
         answer = question(number).lower()
-        if isPrime(number):
+        if is_prime(number):
             right_answer = 'yes'
         else:
             right_answer = 'no'

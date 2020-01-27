@@ -67,7 +67,7 @@ def congratulations(name):
     print('Congratulations, {}!'.format(name))
 
 
-def isPrime(number):
+def is_prime(number):
     '''
     Проверка на простое число
     :param number: Число для проверка

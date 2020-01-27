@@ -9,9 +9,9 @@ def progression():
     for _ in range(1, 4):
         a1 = random.randint(1, 10)  # значение первого члена прогрессии
         d = random.randint(1, 10)  # шаг прогрессии
-        n = 10  # длина прогрессии
-        an = a1 + (n - 1) * d  # последний член прогрессии
-        hide = random.randint(0, n - 1)  # номер скрываемого члена прогресии
+        N = 10  # длина прогрессии
+        an = a1 + (N - 1) * d  # последний член прогрессии
+        hide = random.randint(0, N - 1)  # номер скрываемого члена прогресии
         progression = list(map(str, range(a1, an + 1, d)))  # прогрессия
         right_answer = str(progression[hide])
         progression[hide] = ".."

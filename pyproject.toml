@@ -1,11 +1,19 @@
 [tool.poetry]
 name = "lelikov_brain_games"
-version = "0.5.0"
-description = ""
+version = "0.5.1"
+description = "Brain games. Contains even, calc, gcd, progression and prime games"
 authors = ["Alexandr Lelikov <lelikovas@gmail.com>"]
 packages = [
   { include = "brain_games" },
 ]
+repository = "https://github.com/Lelikov/python-project-lvl1"
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Programming Language :: Python :: 3.8",
+  "Environment :: Console",
+  "Natural Language :: English",
+  "Topic :: Games/Entertainment :: Puzzle Games"
+  ]
 
 [tool.poetry.dependencies]
 python = "^3.8"
