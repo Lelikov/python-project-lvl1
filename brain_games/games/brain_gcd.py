@@ -5,8 +5,7 @@ from brain_games.engine import greeting, welcome_user, \
 
 
 def gcd():
-    greeting()
-    print('Find the greatest common divisor of given numbers.\n')
+    greeting('Find the greatest common divisor of given numbers.')
     name = welcome_user()
     for _ in range(1, 4):
         number_1 = random.randint(1, 4)

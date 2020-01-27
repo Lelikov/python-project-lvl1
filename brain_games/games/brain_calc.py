@@ -4,8 +4,7 @@ from brain_games.engine import greeting, welcome_user, \
 
 
 def calc():
-    greeting()
-    print('What is the result of the expression?\n')
+    greeting('What is the result of the expression?')
     name = welcome_user()
     for _ in range(1, 4):
         number_1 = random.randint(1, 4)
