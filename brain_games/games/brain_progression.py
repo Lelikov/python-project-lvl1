@@ -4,7 +4,7 @@ import random
 def logic():
     N = 10  # длина прогрессии
 
-    rules = 'What number is missing in the progression?'
+    RULES = 'What number is missing in the progression?'
     a1 = random.randint(1, 10)  # значение первого члена прогрессии
     d = random.randint(1, 10)  # шаг прогрессии
     an = a1 + (N - 1) * d  # последний член прогрессии
@@ -12,4 +12,4 @@ def logic():
     progression = list(map(str, range(a1, an + 1, d)))  # прогрессия
     right_answer = str(progression[hide])
     progression[hide] = ".."
-    return rules, ' '.join(progression), right_answer
+    return RULES, ' '.join(progression), right_answer
