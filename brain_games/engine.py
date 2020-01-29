@@ -21,20 +21,13 @@ def welcome_user():
     return name
 
 
-def question(number_1, number_2=None, operation=' '):
+def ask_question(question):
     '''
     Выводит строку с вопросом. Запрашивает ответ
-    :param number_1: Принимает строку со значением числа для вопроса
-    :param number_2: Принимает строку со значением второго числа,
-            если в вопросе содержится какая либо операция с числами
-    :param operation: Принимает строку со значением математического
-            оператора
+    :param question: Принимает строку со значением числа для вопроса
     :return: Строка с запросом ответа
     '''
-    if number_2 is None:
-        print('Question: {}'.format(number_1))
-    else:
-        print('Question: {}{}{}'.format(number_1, operation, number_2))
+    print('Question: {}'.format(question))
     return prompt.string('Your answer ')
 
 
@@ -51,6 +44,7 @@ def check_answer(right_answer, answer, name):
     '''
     if answer == right_answer:
         print('Correct! \n')
+        return True
     else:
         print("\n'{}' is wrong answer ;(. Correct answer was '{}'\
         ".format(answer, right_answer))
@@ -79,3 +73,24 @@ def is_prime(number):
     while divider ** 2 <= number and number % divider != 0:
         divider += 2
     return divider ** 2 > number
+
+
+def run(game):
+    '''
+    Движок игры
+    :param game: Модуль игры
+    :return: None
+    '''
+    ROUNDS = 3
+
+    rules, question, right_answer = game.logic()
+    greeting(rules)
+    name = welcome_user()
+    for _ in range(ROUNDS):
+        rules, question, right_answer = game.logic()
+        answer = ask_question(question).lower()
+        if check_answer(right_answer, answer, name):
+            continue
+        else:
+            exit()
+    congratulations(name)
