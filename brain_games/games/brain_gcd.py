@@ -1,4 +1,5 @@
-import random, math
+import random
+import math
 
 
 def logic():

@@ -1,6 +1,7 @@
 import random
 from brain_games.engine import is_prime
 
+
 def logic():
     rules = 'Answer "yes" if given number is prime. \
 Otherwise answer "no".'
