@@ -1,15 +1,12 @@
 import random
+from operator import add, sub, mul
+
+RULES = 'What is the result of the expression?'
 
 
-def logic():
-    RULES = 'What is the result of the expression?'
-    number_1 = random.randint(1, 4)
-    number_2 = random.randint(1, 4)
-    operation = random.choice(['+', '-', '*'])
-    if operation == '+':
-        right_answer = str(number_1 + number_2)
-    if operation == '-':
-        right_answer = str(number_1 - number_2)
-    if operation == '*':
-        right_answer = str(number_1 * number_2)
-    return RULES, '{}{}{}'.format(number_1, operation, number_2), right_answer
+def make_round():
+    number1 = random.randint(1, 10)
+    number2 = random.randint(1, 10)
+    sign, operation = random.choice([['+', add], ['-', sub], ['*', mul]])
+    right_answer = str(operation(number1, number2))
+    return '{}{}{}'.format(number1, sign, number2), right_answer

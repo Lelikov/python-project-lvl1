@@ -1,11 +1,12 @@
 import random
 
+RULES = 'Answer "yes" if number even otherwise answer "no".'
 
-def logic():
-    RULES = 'Answer "yes" if number even otherwise answer "no".'
-    number = random.randint(1, 4)
+
+def make_round():
+    number = random.randint(1, 10)
     if number % 2 == 0:
         right_answer = 'yes'
-    if number % 2 == 1:
+    else:
         right_answer = 'no'
-    return RULES, '{}'.format(number), right_answer
+    return '{}'.format(number), right_answer

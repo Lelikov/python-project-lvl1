@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "lelikov_brain_games"
-version = "0.6.1"
+version = "0.6.2"
 description = "Brain games. Contains even, calc, gcd, progression and prime games"
 authors = ["Alexandr Lelikov <lelikovas@gmail.com>"]
 packages = [

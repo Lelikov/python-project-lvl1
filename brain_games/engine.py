@@ -1,19 +1,22 @@
 import prompt
 
+ROUNDS = 3
+
 
 def greeting(intro):
     '''
-    Выводит приветствие и задачу игры
-    :param intro: Задача игры
+    Displays the greeting and task of the game
+    :param intro: Game task
     :return None
     '''
     print('Welcome to the Brain Games!')
-    print(intro, '\n')
+    print(intro)
+    print()
 
 
 def welcome_user():
     '''
-    Запрашивает и возвращает имя игрока
+    Queries and returns the player’s name
     :return: None
     '''
     name = prompt.string('May I have your name? ')
@@ -23,74 +26,42 @@ def welcome_user():
 
 def ask_question(question):
     '''
-    Выводит строку с вопросом. Запрашивает ответ
-    :param question: Принимает строку со значением числа для вопроса
-    :return: Строка с запросом ответа
+    Displays a question. Requests an answer
+    :param question: Takes a string with a number value for the question
+    :return: Response request
     '''
     print('Question: {}'.format(question))
     return prompt.string('Your answer ')
 
 
-def check_answer(right_answer, answer, name):
-    '''
-    Сравнивает ответ данный игроком с правильным ответом
-    В случае правильного ответа выводит подтверждение.
-    В случае неправильного ответа выводит правильный ответ и
-    сообщение об окончании игры
-    :param right_answer: Правильный ответ
-    :param answer: Ответ игрока
-    :param name: Имя игрока
-    :return: Возвращает False при неправильном ответе
-    '''
-    if answer == right_answer:
-        print('Correct! \n')
-        return True
-    else:
-        print("\n'{}' is wrong answer ;(. Correct answer was '{}'\
-        ".format(answer, right_answer))
-        print("Let's try again, {}!".format(name))
-        return False
-
-
 def congratulations(name):
     '''
-    Выводит поздравление игрока об успешном окончании игры
-    :param name: Имя игрока
+    Displays the player’s congratulations on the successful
+    completion of the game.
+    :param name: Player name
     :return: None
     '''
     print('Congratulations, {}!'.format(name))
 
 
-def is_prime(number):
-    '''
-    Проверка на простое число
-    :param number: Число для проверка
-    :return: True если число простое, False если число составное
-    '''
-    if number % 2 == 0:
-        return number == 2  # если число четное, то возвращаем False (кроме 2)
-    divider = 3
-    while divider ** 2 <= number and number % divider != 0:
-        divider += 2
-    return divider ** 2 > number
-
-
 def run(game):
     '''
-    Движок игры
-    :param game: Модуль игры
+    Game engine
+    :param game: Game module
     :return: None
     '''
-    ROUNDS = 3
-
-    rules, question, right_answer = game.logic()
-    greeting(rules)
+    question, right_answer = game.make_round()
+    greeting(game.RULES)
     name = welcome_user()
     for _ in range(ROUNDS):
-        rules, question, right_answer = game.logic()
+        question, right_answer = game.make_round()
         answer = ask_question(question).lower()
-        if check_answer(right_answer, answer, name):
+        if answer == right_answer:
+            print('Correct! \n')
             continue
         else:
-            exit()
+            print("\n'{}' is wrong answer ;(. Correct answer was '{}'\
+            ".format(answer, right_answer))
+            print("Let's try again, {}!".format(name))
+            return None
     congratulations(name)
