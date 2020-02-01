@@ -20,7 +20,8 @@ def welcome_user():
     :return: None
     '''
     name = prompt.string('May I have your name? ')
-    print('Hello, {}\n'.format(name))
+    print('Hello, {}'.format(name))
+    print()
     return name
 
 
@@ -57,10 +58,12 @@ def run(game):
         question, right_answer = game.make_round()
         answer = ask_question(question).lower()
         if answer == right_answer:
-            print('Correct! \n')
+            print('Correct!')
+            print()
             continue
         else:
-            print("\n'{}' is wrong answer ;(. Correct answer was '{}'\
+            print()
+            print("'{}' is wrong answer ;(. Correct answer was '{}'\
             ".format(answer, right_answer))
             print("Let's try again, {}!".format(name))
             return None
