@@ -51,7 +51,6 @@ def run(game):
     :param game: Game module
     :return: None
     '''
-    question, right_answer = game.make_round()
     greeting(game.RULES)
     name = welcome_user()
     for _ in range(ROUNDS):
