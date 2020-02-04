@@ -9,4 +9,4 @@ def make_round():
         right_answer = 'yes'
     else:
         right_answer = 'no'
-    return '{}'.format(number), right_answer
+    return str(number), right_answer

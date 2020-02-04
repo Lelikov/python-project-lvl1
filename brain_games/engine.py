@@ -59,11 +59,10 @@ def run(game):
         if answer == right_answer:
             print('Correct!')
             print()
-            continue
         else:
             print()
             print("'{}' is wrong answer ;(. Correct answer was '{}'\
             ".format(answer, right_answer))
             print("Let's try again, {}!".format(name))
-            return None
+            return
     congratulations(name)
